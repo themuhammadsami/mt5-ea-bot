@@ -1,12 +1,12 @@
-
 {
-  "name": "mt5-ea-env",
+  "name": "MT5 EA Bot",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
   "settings": {
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "postCreateCommand": "bash install_mt5.sh",
-  "remoteUser": "vscode"
+  "postCreateCommand": "chmod +x install_mt5.sh && ./install_mt5.sh",
+  "remoteUser": "root"
 }
