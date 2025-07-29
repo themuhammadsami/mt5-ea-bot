@@ -1,10 +1,22 @@
-FROM ubuntu:22.04
+# Use official Ubuntu as base
+FROM ubuntu:20.04
 
-RUN dpkg --add-architecture i386 && \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update && \
+    apt install -y software-properties-common && \
+    dpkg --add-architecture i386 && \
+    add-apt-repository universe && \
     apt update && \
-    apt upgrade -y && \
-    apt install -y wine64 wine32 unzip wget cabextract winbind xvfb && \
-    apt install -y git curl nano
-
-# Create wine prefix
-RUN wineboot || true
+    apt install -y \
+    wget \
+    gnupg2 \
+    unzip \
+    cabextract \
+    winbind \
+    xvfb \
+    wine64 \
+    wine32 \
+    x11-utils \
+    curl \
+    && apt clean
