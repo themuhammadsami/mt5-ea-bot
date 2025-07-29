@@ -1,1 +1,12 @@
 
+{
+  "name": "mt5-ea-env",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "postCreateCommand": "bash install_mt5.sh",
+  "remoteUser": "vscode"
+}
